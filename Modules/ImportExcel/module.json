@@ -1,0 +1,11 @@
+{
+    "name": "ImportExcel",
+    "alias": "importexcel",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\ImportExcel\\Providers\\ImportExcelServiceProvider"
+    ],
+    "files": []
+}
