@@ -1,0 +1,11 @@
+{
+    "name": "CreateFile",
+    "alias": "createfile",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\CreateFile\\Providers\\CreateFileServiceProvider"
+    ],
+    "files": []
+}

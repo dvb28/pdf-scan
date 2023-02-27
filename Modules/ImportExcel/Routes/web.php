@@ -13,6 +13,6 @@
 
 Route::prefix('importexcel')->group(function() {
     Route::get('/', 'ImportExcelController@index');
-    Route::post('import', 'ImportExcelController@import')->name('submit-data');
+    Route::post('submit-data', 'ImportExcelController@import');
     Route::get('export', 'ImportExcelController@export')->name('export-data');
 });

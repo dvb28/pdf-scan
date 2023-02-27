@@ -13,6 +13,8 @@
         "laravel/tinker": "^2.7",
         "maatwebsite/excel": "^3.1",
         "nwidart/laravel-modules": "^9.0",
+        "phpoffice/phpspreadsheet": "^1.27",
+        "phpoffice/phpword": "^1.0",
         "vish4395/laravel-file-viewer": "^1.0"
     },
     "require-dev": {
