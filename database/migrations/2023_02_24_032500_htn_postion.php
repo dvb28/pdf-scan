@@ -13,7 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        //
+        Schema::table('htn_postion', function (Blueprint $table) {
+            $table->unsignedBigInteger('id', 20)->nullable(false);
+            $table->string('name', 255)->collation()->nullable(false);
+            $table->unsignedBigInteger('parent_id', 20)->default('0');
+            $table->string('code', 255)->collation()->default(null);
+            $table->text('desc')->collation()->default(null);
+            $table->string('key', 255)->collation()->default(null);
+            $table->timestamp();
+        });
     }
 
     /**

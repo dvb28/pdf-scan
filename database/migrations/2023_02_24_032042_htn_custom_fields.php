@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('htn_custom_fields', function($table) {
-            $table->id()->unsignedBigInteger()->nullable(false);
+            $table->unsignedBigInteger('id', 20)->nullable(false);
             $table->string('name', 255)->collation()->nullable(false);
             $table->text('desc')->collation()->nullable();
             $table->string('image', 255)->collation()->nullable(false);

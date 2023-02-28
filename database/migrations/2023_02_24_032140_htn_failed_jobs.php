@@ -13,7 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        //
+        Schema::table('htn_failed_jobs', function (Blueprint $table) {
+            $table->unsignedBigInteger('id', 20)->nullable(false);
+            $table->string('uuid', 255)->collation()->nullable(false);
+            $table->text('connection')->collation()->nullable(false);
+            $table->text('queue')->collation()->nullable(false);
+            $table->longText('payload')->collation()->nullable(false);
+            $table->longText('exception')->collation()->nullable(false);
+            $table->timestamp();
+        });
     }
 
     /**

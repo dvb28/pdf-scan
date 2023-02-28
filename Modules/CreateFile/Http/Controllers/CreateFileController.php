@@ -30,6 +30,7 @@ class CreateFileController extends Controller
         $fileType = $request->input('editor-filetype');
 
         $data = [
+            'parent_id' => 4,
             'slug' => "$fileName.$fileType",
             'type' => 'document'
         ];

@@ -14,13 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('htn-category', function(Blueprint $table) {
-            $table->id()->unsignedBigInteger()->nullable(false);
-            $table->integer('type_id', 11)->nullable(false);
-            $table->integer('parent_id', 11)->nullable(false)->default('0');
-            $table->string('name', 255)->collation()->nullable(false);
-            $table->text('desc')->collation();
-            $table->string('image', 255)->collation()->default(null);
-            $table->timestamp();
+            $table->bigIncrements('id')->unsigned();
+            $table->integer('type_id')->unsigned();
+            $table->integer('parent_id')->default(0);
+            $table->string('name', 255);
+            $table->text('desc')->nullable();
+            $table->string('image', 255)->nullable();
+            $table->timestamps();
         });
     }
 

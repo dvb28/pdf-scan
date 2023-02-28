@@ -13,7 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        //
+        Schema::table('htn_password_resets', function (Blueprint $table) {
+            $table->string('email', 255)->collation()->nullable(false);
+            $table->string('token', 255)->collation()->nullable(false);
+            $table->timestamp();
+        });
     }
 
     /**

@@ -68,14 +68,12 @@ $(document).ready(function() {
         
         // Validate khi chọn file excel
         if(excel_file) {
+            excelImportMessage.text(excel_file.name);
             if(!(excel_file.name.endsWith('.xls') || excel_file.name.endsWith('.xlsx'))) {
-                // showModalMessage('show', 'Vui lòng tải lên file Excel');
                 showErrorNotify({
                     message: 'Vui lòng tải lên file Excel'
-                })
+                });
                 excel_file = null;
-            } else {
-                excelImportMessage.text(excel_file.name);
             }
         }
 
@@ -90,6 +88,8 @@ $(document).ready(function() {
         // Validate khi chọn file pdf
         if(pdf_file.length != 0) {
 
+            pdfImportMessage.text(`Đã tải lên ${pdf_file.length} files`);
+
             // Tính tổng size
             let sizes = Array.from(pdf_file).reduce((temp, item) => {
                 return temp += item.size;
@@ -102,9 +102,7 @@ $(document).ready(function() {
                     message: 'Kích thước tổng các file PDF phải dưới 1G'
                 })
                 pdf_file = null;
-            } else {
-                pdfImportMessage.text(`Đã tải lên ${pdf_file.length} files`);
-            }
+            } 
 
         }
     })
@@ -148,11 +146,11 @@ $(document).ready(function() {
                     // Nếu validate thành công, submit form
                     if(data.hasError) {
                         showSuccessNotify({
-                            message: `Import thành công ${pdf_file.length - data.hasError}, bị lỗi ${data.hasError} file!`
+                            message: `Import thành công ${pdf_file.length - data.hasError} / ${pdf_file.length} files, bị lỗi ${data.hasError} file!`
                         });
                     } else {
                         showSuccessNotify({
-                            message: `Import thành công ${pdf_file.length} files`
+                            message: `Import thành công ${pdf_file.length} / ${pdf_file.length} files`
                         })
                         setTimeout(() => {
                             model.modal('hide');

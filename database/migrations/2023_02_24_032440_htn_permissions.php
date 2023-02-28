@@ -13,7 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        //
+        Schema::table('htn_organizational', function (Blueprint $table) {
+            $table->unsignedBigInteger('id', 20)->nullable(false);
+            $table->string('name', 255)->collation()->nullable(false);
+            $table->string('guard_name', 255)->collation()->nullable(false);
+            $table->timestamp();
+        });
     }
 
     /**

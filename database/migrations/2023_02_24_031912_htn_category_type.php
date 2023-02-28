@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('htn_category_type', function($table) {
-            $table->unsignedBigInteger()->nullable(false);
+            $table->unsignedBigInteger('id', 20)->nullable(false);
             $table->string('name', 255)->nullable(false);
             $table->text('desc')->collation()->default(null);
             $table->string('image', 255)->collation()->default(null);

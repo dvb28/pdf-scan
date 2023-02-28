@@ -13,7 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('htn_model_has_permissions', function() {
+            $table->unsignedBigInteger('permission_id', 20)->nullable(false);
+            $table->string('model_type', 255)->collation()->nullable(false);
+            $table->unsignedBigInteger('model_id')->nullable(false);
+        });
     }
 
     /**

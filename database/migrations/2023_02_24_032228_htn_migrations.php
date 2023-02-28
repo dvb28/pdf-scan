@@ -13,7 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        //
+        Scheme::create('htn_migrations', function() {
+            $table->unsignedBigInteger('id', 20)->nullable(false);
+            $table->string('migration', 255)->collation()->nullable(false);
+            $table->integer('batch', 11)->nullable(false);
+        });
     }
 
     /**

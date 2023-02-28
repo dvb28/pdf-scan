@@ -13,7 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('htn_languages', function(Blueprint $table) {
+            $table->unsignedBigInteger('id', 20)->nullable(false);
+            $table->string('code', 255)->collation()->nullable(false);
+            $table->text('text')->collation();
+            $table->string('position', 100)->collation()->nullable(false);
+            $table->string('location', 10)->collation()->nullable(false);
+            $table->timestamp();
+        });
     }
 
     /**

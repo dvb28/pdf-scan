@@ -13,7 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        //
+        Schema::table('htn_post_metas', function (Blueprint $table) {
+            $table->unsignedBigInteger('id', 20)->nullable(false);
+            $table->unsignedBigInteger('post_id', 20)->nullable(false);
+            $table->string('meta_key', 150)->collation()->nullable(false);
+            $table->text('meta_value')->collation();
+            $table->timestamp();
+        });
     }
 
     /**

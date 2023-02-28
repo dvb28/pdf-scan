@@ -13,7 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        //
+        Schema::table('htn_role_has_permissions', function (Blueprint $table) {
+            $table->unsignedBigInteger('permission_id', 20)->nullable(false);
+            $table->unsignedBigInteger('role_id', 20)->nullable(false);
+        });
     }
 
     /**

@@ -13,8 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('charge', function (Blueprint $table) {
-            //
+        Schema::table('htn_department_in_charge', function (Blueprint $table) {
+            $table->unsignedBigInteger('id', 20)->nullable(false);
+            $table->integer('user_id', 11)->nullable(false);
+            $table->integer('organizational_id', 11)->nullable(false);
+            $table->integer('postion_id', 11)->default(null);
+            $table->timestamp();
         });
     }
 
