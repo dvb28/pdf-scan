@@ -1,22 +1,39 @@
-const input = document.getElementById("file-input");
-const table = document.getElementById("excel-table");
+$(document).ready(function () {
+    const input = document.getElementById("file-input");
+    const table = document.getElementById("excel-table");
+    const thead = document.querySelector("#excel-table thead");
+    const tbody = document.querySelector("#excel-table tbody");
 
-input.addEventListener("change", (event) => {
-    const file = event.target.files[0];
+    // Sự kiện xảy ra khi file excel được tải lên
+    input.addEventListener("change", (event) => {
+        const file = event.target.files[0];
 
-    readXlsxFile(file).then((rows) => {
-        // Clear the table
-        table.innerHTML = "";
-
-        // Add the rows to the table
-        rows.forEach((row) => {
+        // Hàm thêm row vào table
+        function addRow(row, parent, element) {
             const tr = document.createElement("tr");
             row.forEach((cell) => {
-                const td = document.createElement("td");
-                td.textContent = cell;
-                tr.appendChild(td);
+                const elem = document.createElement(element);
+                elem.textContent = cell;
+                tr.appendChild(elem);
             });
-            table.appendChild(tr);
+            parent.appendChild(tr);
+        }
+
+        // Đọc file excel và render ra HTML
+        readXlsxFile(file).then((rows) => {
+            // Add the rows to the table
+            rows.forEach((row, index) => {
+                if (index === 0) {
+                    addRow(row, thead, "th");
+                } else {
+                    addRow(row, tbody, "td");
+                }
+            });
+
+            // Datatable
+            $("#excel-table").DataTable({
+                "autoWidth": true
+            });
         });
     });
 });
